@@ -6,7 +6,6 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Encore\Admin\Controllers\AuthController as BaseAuthController;
-use Encore\Admin\Extension as E;
 
 class AuthAttemptsController extends BaseAuthController
 {
@@ -17,8 +16,8 @@ class AuthAttemptsController extends BaseAuthController
 
     public function __construct()
     {
-        $this->maxAttempts  = E::config('maxAttempts', 5);
-        $this->decayMinutes = E::config('decayMinutes', 1);
+        $this->maxAttempts  = config('admin.extensions.auth-attempts.maxAttempts', 5);
+        $this->decayMinutes = config('admin.extensions.auth-attempts.decayMinutes', 1);
     }
 
     public function getLogin()
