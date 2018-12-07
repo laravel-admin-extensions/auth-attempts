@@ -15,7 +15,7 @@ composer require manzhouya/auth-attempts
 
 ### Configuration
 
-In the extensions section of the config/admin.php file, add configurations
+In the extensions section of the `config/admin.php` file, add configurations
 ```
 'extensions' => [
      'auth-attempts' => [
@@ -29,11 +29,23 @@ In the extensions section of the config/admin.php file, add configurations
 ]
 ```
 
-In the resources/lang/en(example)/validation.php file, add configurations
+In the `resources/lang/en(example)/validation.php` file, add configurations
 ```
 'captcha'    => 'The :attribute is invalid.',
 'attributes' => [
     'captcha' => 'captcha',
+],
+```
+
+If you need to modify the captcha configuration, please see [mews/captcha](https://github.com/mewebstudio/captcha)
+
+And in the `config/captcha.php` file, add configurations
+```
+'admin' => [
+    'length'    => 5,
+    'width'     => 120,
+    'height'    => 36,
+    'quality'   => 90,
 ],
 ```
 
